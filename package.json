@@ -1,5 +1,6 @@
 {
   "name": "dashboard-riot",
+  "private": true,
   "version": "1.0.0",
   "description": "Brewlog dashboard as Riot.js application",
   "main": "index.js",
@@ -7,11 +8,20 @@
     "test": "nyc --require esm --require jsdom-global/register --require @riotjs/register mocha src/**/*.spec.js",
     "cov": "nyc report --reporter=text-lcov | coveralls",
     "cov-html": "nyc report --reporter=html",
-    "build": "rollup -c",
+    "build": "NODE_ENV=production rollup -c",
     "prepublishOnly": "npm test",
     "start": "npm run watch & npm run server",
     "watch": "rollup -c -w 'src/**'",
     "server": "browser-sync start --files 'dist/*, style.css, index.html' --server"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-riot",
+    "rules": {
+      "sort-imports": "off"
+    },
+    "ignorePatterns": [
+      "dist/"
+    ]
   },
   "author": "Jarek Zgoda",
   "license": "MIT",
@@ -22,6 +32,8 @@
     "@rollup/plugin-node-resolve": "^11.0.1",
     "browser-sync": "^2.26.13",
     "chai": "^4.2.0",
+    "eslint": "^7.17.0",
+    "eslint-config-riot": "^3.0.0",
     "esm": "^3.2.25",
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
