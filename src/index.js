@@ -1,6 +1,8 @@
 import { mount } from 'riot'
 import registerGlobalComponents from './register-global-components'
 
+import './style/index.scss'
+
 // register
 registerGlobalComponents()
 

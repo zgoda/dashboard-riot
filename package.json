@@ -12,7 +12,7 @@
     "prepublishOnly": "npm test",
     "start": "npm run watch & npm run server",
     "watch": "rollup -c -w 'src/**'",
-    "server": "browser-sync start --files 'dist/*, style.css, index.html' --server"
+    "server": "browser-sync start --index src/index.html --files 'dist/*, src/index.html' --server"
   },
   "eslintConfig": {
     "extends": "eslint-config-riot",
@@ -41,9 +41,12 @@
     "nyc": "^15.1.0",
     "rollup": "^2.35.1",
     "rollup-plugin-riot": "^5.0.0",
+    "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
+    "@csstools/normalize.css": "^11.0.1",
+    "milligram": "^1.4.1",
     "riot": "^5.1.2"
   }
 }
